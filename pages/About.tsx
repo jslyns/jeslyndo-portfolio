@@ -76,7 +76,7 @@ export default function About() {
               },
               { 
                 title: "Student Leader", 
-                src: new URL('../images/ivc/Student Leader/ivc-video.mp4', import.meta.url).href, 
+                src: new URL('../images/ivc/ivc-video.mp4', import.meta.url).href, 
                 isVideo: true, 
                 action: () => setShowLeaderModal(true) 
               },
