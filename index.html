@@ -1,0 +1,109 @@
+<!-- index.html — v1.08 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JESLYNDO • Portfolio</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS (Critical for Layout) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#2774AE', // UCLA Blue
+              ink: '#16294E',     // Dark Navy
+              muted: '#5A6B8F',   // Slate Blue
+              light: '#DAE1E9',   // Borders
+              bg: '#F8FBFF',      // Light Background
+              accent: '#FFD100'   // Gold
+            }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'], // Set Poppins as default sans
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-out forwards',
+            'shimmer': 'shimmer 2s linear infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '200% 0' },
+              '100%': { backgroundPosition: '-200% 0' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* === Site Theme — Baseline v1.05 === */
+    :root{
+      --bg-top: #F8FBFF;
+      --bg-bottom: #FEFFFF;
+    }
+
+    /* Reset & Base */
+    *,*::before,*::after{ box-sizing:border-box; }
+    
+    html,body{
+      height:100%; margin:0;
+      font-family: 'Poppins', sans-serif; /* Global font application */
+      color: #16294E; /* Fallback ink color */
+      line-height: 1.6;
+    }
+
+    body{
+      background: radial-gradient(circle at top, rgba(255,255,255,1) 0, rgba(255,255,255,0) 40%),
+                  linear-gradient(to bottom, var(--bg-top) 0, var(--bg-bottom) 100%);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* The specific gradient overlay */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255,255,255,0.46) 0, transparent 45%),
+        radial-gradient(circle at 90% -10%, rgba(147,197,253,0.45) 0, transparent 45%);
+      opacity:.85;
+      z-index:-1;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "three": "https://aistudiocdn.com/three@^0.181.2"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="./index.tsx"></script>
+</body>
+</html>
