@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { X, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-/* Version 8.3 - Standardized Image Paths (Lowercase) */
+/* Version 11.3 - Fixed to Lowercase Extensions per Repository State */
 export default function About() {
   const [showLeaderModal, setShowLeaderModal] = useState(false);
 
@@ -45,7 +45,7 @@ export default function About() {
              <div className="absolute -inset-4 bg-brand-primary/5 rounded-[2rem] rotate-3 scale-95 group-hover:-rotate-1 transition-transform duration-700 delay-75 will-change-transform" />
              
              <div className="relative aspect-[4/5] bg-white rounded-2xl shadow-2xl border border-white p-2 rotate-1 group-hover:rotate-0 transition-transform duration-500 overflow-hidden will-change-transform">
-               {/* Hero Image - Standardized to .jpg (Lowercase) */}
+               {/* FIXED: Reverted to .jpg (lowercase) to match repository */}
                <img 
                  src={new URL('../images/about/Jes-Croatia.jpg', import.meta.url).href}
                  onError={(e) => e.currentTarget.src = "https://picsum.photos/seed/bruin/800/1000"}
@@ -68,9 +68,23 @@ export default function About() {
 
           <div className="mt-12 grid md:grid-cols-3 gap-8">
             {[
-              { title: "Graphic Designer", src: new URL('../images/about/graphic-designer.png', import.meta.url).href, isVideo: false, link: "/projects/graphics" },
-              { title: "Student Leader", src: new URL('../images/about/ivc-video.mp4', import.meta.url).href, isVideo: true, action: () => setShowLeaderModal(true) },
-              { title: "Web UI Designer", src: new URL('../images/about/web-designer.jpg', import.meta.url).href, isVideo: false }
+              { 
+                title: "Graphic Designer", 
+                src: new URL('../images/about/graphic-designer.png', import.meta.url).href, 
+                isVideo: false, 
+                link: "/projects/graphics" 
+              },
+              { 
+                title: "Student Leader", 
+                src: new URL('../images/ivc/Student Leader/ivc-video.mp4', import.meta.url).href, 
+                isVideo: true, 
+                action: () => setShowLeaderModal(true) 
+              },
+              { 
+                title: "Web UI Designer", 
+                src: new URL('../images/about/web-designer.jpg', import.meta.url).href, 
+                isVideo: false 
+              }
             ].map((skill, i) => {
               // Common card content
               const CardContent = (
@@ -185,6 +199,7 @@ export default function About() {
 
             {/* Left Picture - Compact Square-ish */}
             <div className="md:w-[300px] bg-gray-100 min-h-[200px] md:min-h-full relative">
+              {/* FIXED: Reverted to .jpeg (lowercase) to match repository */}
               <img 
                 src={new URL('../images/ivc/Student Leader/jeslyn-ivc.jpeg', import.meta.url).href}
                 onError={(e) => e.currentTarget.src = "https://picsum.photos/seed/ivc/400/400"} 
